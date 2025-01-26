@@ -1,11 +1,6 @@
 <template>
   <el-config-provider :locale="locale">
-    <div class="app">
-      
-      <main class="main">
-        <router-view></router-view>
-      </main>
-    </div>
+    <router-view></router-view>
   </el-config-provider>
 </template>
 

@@ -167,7 +167,9 @@ export default {
     weibo: '微博',
     wechat: '微信',
     douyin: '抖音',
+    kanzhun: '看准',
     redbook: '小红书',
+    linkedin: '领英',
   },
   company: {
     name: '宝马',
@@ -190,8 +192,23 @@ export default {
       metric: '指标',
       bmw: '宝马',
       benz: '奔驰',
-      audi: '奥迪'
+      audi: '奥迪',
     },
+    metric: {
+      newFollowers: '新增粉丝数',
+      posts: '发文数',
+      wechatReads: '阅读数(仅微信)',
+      avgReads: '平均阅读量(微信)',
+      readsToFollowersRatio: '阅读量相对总粉丝数比(微信)',
+      likes: '点赞数',
+      avgLikes: '平均点赞数',
+      likesToFollowersRatio: '喜欢与总粉丝数对比',
+      viewsAndLikes: '分享/在看数',
+      avgViewsAndLikes: '平均分享/在看数',
+      viewsToFollowersRatio: '分享数/在看数与总粉丝数',
+      engagementRate: '平均参与度与发帖数比率'
+    },
+    metricDescription: ' 点击上列表中的其中一行，在此显示该数据的图表',
     trendChart: {
       title: '表现趋势'
     }
@@ -203,6 +220,45 @@ export default {
     mentions: '品牌提及次数',
     shares: '内容分享次数',
     totalReach: '总受众覆盖量'
+  },
+  stats: {
+    ebmScore: 'EBM得分',
+    ranking: '排名',
+    socialInteractions: '社交媒体互动',
+    mentions: '品牌提及次数',
+    shares: '内容分享次数',
+    totalReach: '总受众覆盖量'
+  },
+  header: {
+    myCompany: '我的公司',
+    dataMonitor: '数据监控'
+  },
+  sections: {
+    bestPerformance: '最佳表现者',
+    bestPerformanceDesc: '平台各项指标的最佳表现者。',
+    goodContent: '表现最好的内容',
+    goodContentDesc: '您可以查看该周各项指标的一周中表现最好的雇主品牌推广内容。',
+    ebmRanking: 'EBM排名'
+  },
+  metrics: {
+    engagement: '互动得分',
+    influence: '影响力增长',
+    activity: '活跃度得分'
+  },
+  tabs: {
+    allContent: '全部内容',
+    articles: '文章',
+    videos: '视频'
+  },
+  contentTable: {
+    company: '公司',
+    score: '得分',
+    engagement: '互动',
+    influence: '影响力',
+    activity: '活跃度',
+    title: '标题',
+    date: '日期',
+    views: '浏览量'
   }
 }
 

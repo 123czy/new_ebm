@@ -1,7 +1,7 @@
 <template>
     <el-config-provider >
       <div class="app-container">
-        <OrganizeHeader />
+        <!-- <OrganizeHeader /> -->
         <el-main>
             <div class="app-content">
             <!-- <img src="/logo.svg" alt="EBM Logo" class="logo" /> -->
@@ -19,6 +19,7 @@
           <competitor-analysis />
         </el-main>
       </div>
+      <!-- <organize-footer /> -->
     </el-config-provider>
   </template>
   

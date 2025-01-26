@@ -7,9 +7,7 @@
              class="stat-card">
           <div class="stat-value">{{ stat.value }}</div>
           <div class="stat-label">{{ t(stat.label) }}</div>
-          <el-tooltip :content="t(stat.tooltip)" placement="top">
-            <el-icon class="info-icon"><InfoFilled /></el-icon>
-          </el-tooltip>
+          <div class="stat-number">{{ stat.number }} -</div>
         </div>
       </div>
     </div>
@@ -22,22 +20,20 @@
   const { t } = useI18n();
   
   const statistics = [
-    { id: 1, value: '18.34', label: 'stats.ebmScore', tooltip: 'tooltips.ebmScore' },
-    { id: 2, value: '17', label: 'stats.ranking', tooltip: 'tooltips.ranking' },
-    { id: 3, value: '0', label: 'stats.socialInteractions', tooltip: 'tooltips.socialInteractions' },
-    { id: 4, value: '0', label: 'stats.mentions', tooltip: 'tooltips.mentions' },
-    { id: 5, value: '0', label: 'stats.shares', tooltip: 'tooltips.shares' },
-    { id: 6, value: '3,095,780', label: 'stats.totalReach', tooltip: 'tooltips.totalReach' }
+    { id: 1, value: '18.34',number: 0, label: 'stats.ebmScore', tooltip: 'tooltips.ebmScore' },
+    { id: 2, value: '17',number: 0, label: 'stats.ranking', tooltip: 'tooltips.ranking' },
+    { id: 3, value: '0',number: 0, label: 'stats.socialInteractions', tooltip: 'tooltips.socialInteractions' },
+    { id: 4, value: '0',number: 0, label: 'stats.mentions', tooltip: 'tooltips.mentions' },
+    { id: 5, value: '0',number: 0,  label: 'stats.shares', tooltip: 'tooltips.shares' },
+    { id: 6, value: '3,095,780',number: 0, label: 'stats.totalReach', tooltip: 'tooltips.totalReach' }
   ];
   </script>
   
   <style lang="scss" scoped>
   .statistics-panel {
-    background: #fff;
     border-radius: 8px;
-    padding: 20px;
+    padding: 20px 0;
     margin-top: 20px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
   
     .panel-title {
       font-size: 16px;
@@ -53,11 +49,12 @@
   
     .stat-card {
       position: relative;
-      padding: 16px;
-      border: 1px solid #eee;
+      padding: 32px;
+      background: #fff;
+      border: 1px solid rgba(0,40,100,.12);
       border-radius: 6px;
       text-align: center;
-  
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
       .stat-value {
         font-size: 24px;
         font-weight: 600;
@@ -68,6 +65,14 @@
         font-size: 14px;
         color: #666;
         margin-top: 8px;
+      }
+      .stat-number{
+        color: #f1c40f!important;
+        margin-top: 8px;
+        position: absolute;
+        bottom: 16px;
+        right: 8px;
+        top: 0;
       }
   
       .info-icon {

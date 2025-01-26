@@ -141,7 +141,9 @@ export default {
     weibo: 'Weibo',
     wechat: 'WeChat',
     douyin: 'Douyin',
+    kanzhun: 'Kanzhun',
     redbook: 'RED',
+    linkedin: 'LinkedIn',
   },
   company: {
     name: 'BMW',
@@ -166,6 +168,21 @@ export default {
       benz: 'Mercedes-Benz',
       audi: 'Audi'
     },
+    metric: {
+      newFollowers: 'New Fans',
+      posts: 'Posts',
+      wechatReads: 'WeChat Reads',
+      avgReads: 'Average Reads (WeChat)',
+      readsToFollowersRatio: 'Reads vs total fans (WeChat)',
+      likes: 'Likes',
+      avgLikes: 'Average Likes',
+      likesToFollowersRatio: 'Likes vs total fans',
+      viewsAndLikes: 'Shares/wows',
+      avgViewsAndLikes: 'Average Shares/wows',
+      viewsToFollowersRatio: 'Shares/wows vs total fans',
+      engagementRate: 'Avg. Engagement vs Posts Ratio'
+    },
+    metricDescription: 'Click one of the rows in the table above to display a chart of that data here',
     trendChart: {
       title: 'Performance Trend'
     }
@@ -177,6 +194,14 @@ export default {
     mentions: 'Number of brand mentions',
     shares: 'Content share count',
     totalReach: 'Total audience reach'
+  },
+  stats: {
+    ebmScore: 'EBM Score',
+    ranking: 'Ranking',
+    socialInteractions: 'Social Interactions',
+    mentions: 'Mentions',
+    shares: 'Shares',
+    totalReach: 'Total Reach'
   }
 }
 

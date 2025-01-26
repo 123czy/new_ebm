@@ -1,7 +1,7 @@
 <template>
     <div class="company-header">
       <div class="header-content">
-        <div class="company-info">
+        <div class="company-info ">
         <div class="company-info-wrapper">
             <div class="logo-section">
                 <img class="emb-logo" src="@/assets/svg/emb-logo.svg" alt="">
@@ -38,37 +38,38 @@
       </div>
         </div>
         
-        <div class="score-section">
+        <div class="score-section ">
           <div class="score-card">
             <div class="score-item">
-              <div class="score-value">
-                <span class="number">18.34</span>
-                <el-tooltip content="查看详情" placement="top">
-                  <el-icon class="info-icon"><QuestionFilled /></el-icon>
-                </el-tooltip>
-              </div>
-              <div class="score-label">EBM得分</div>
-              <div class="score-change">
+              <p class="score-change">
                 <span class="change-value">0.00%</span>
                 <span class="trend">—</span>
-              </div>
+              </p>
+              
+              <p class="score-value">
+                <span class="number fs-32 fw-600">18.34</span>
+                <el-tooltip content="查看详情" placement="top">
+                  <el-icon class="info-icon" size="16"><QuestionFilled /></el-icon>
+                </el-tooltip>
+              </p>
+              <p class="score-label text-center">EBM得分</p>
             </div>
           </div>
           
           <div class="score-card">
             <div class="score-item">
-              <div class="score-value">
-                <span class="number">17</span>
-                <span class="total">of 421</span>
-                <el-tooltip content="查看详情" placement="top">
-                  <el-icon class="info-icon"><QuestionFilled /></el-icon>
-                </el-tooltip>
-              </div>
-              <div class="score-label">排名</div>
-              <div class="score-change">
-                <span class="change-value">0</span>
+              <p class="score-change">
+                <span class="change-value ">0</span>
                 <span class="trend">—</span>
-              </div>
+              </p>
+              <p class="score-value">
+                <span class="number fs-32 fw-600">17</span>
+                <span class="total ">of 421</span>
+                <el-tooltip content="查看详情" placement="top">
+                  <el-icon class="info-icon" size="16"><QuestionFilled /></el-icon>
+                </el-tooltip>
+              </p>
+              <p class="score-label text-center">排名</p>
             </div>
           </div>
         </div>
@@ -84,36 +85,57 @@
   
   <style lang="scss" scoped>
   .company-header {
-    background: white;
-    padding: 24px;
-    border-radius: 8px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  
+    background: #F5F7FA;
+    width: 100%;
     .header-content {
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 90px;
+      grid-template-columns: 60% 40%;
+      gap: 24px;
+      max-width: 100%;
+      margin: 0 auto;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
     }
+
   
     .company-info {
+      width: 100%;
       position: relative;
       display: flex;
       justify-content: space-between;
       flex-direction: column;
       align-items: flex-start;
-      padding:0 30px 30px;
+      padding: 30px;
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 40, 100, .12);
+      border-radius: 3px;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
+
+      @media (max-width: 768px) {
+        padding: 20px;
+      }
+
       .company-info-wrapper{
         width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        @media (max-width: 768px) {
+          flex-direction: column;
+          gap: 16px;
+          align-items: flex-start;
+        }
       }
       &:before{
         content: '';
         position: absolute;
-        top: 50%;
+        top: 55%;
         left: 3%;
-        width: 100%;
+        width: 93%;
         height: 1px;
         background: #EAEAEA;
       }
@@ -123,11 +145,22 @@
       display: flex;
       align-items: center;
       gap: 16px;
+
+      @media (max-width: 768px) {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
       .emb-logo{
         width: 100px;
         height: 100px;
         border-radius: 50%;
         background: #EAEAEA;
+
+        @media (max-width: 768px) {
+          width: 80px;
+          height: 80px;
+        }
       }
   
       .company-logo {
@@ -187,16 +220,27 @@
     .score-section {
       display: flex;
       flex-direction: column;
+      width: 100%;
       gap: 24px;
-      padding: 0 24px;
-      border-left: 1px solid #EAEAEA;
+
+      @media (max-width: 768px) {
+        gap: 16px;
+      }
     }
   
     .score-card {
-      background: #fff;
+      width: 95%;
+      background: #FFFFFF;
       padding: 16px;
-      border-radius: 8px;
-      min-width: 200px;
+      min-width: 240px;
+      border: 1px solid rgba(0, 40, 100, .12);
+      border-radius: 3px;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
+
+      @media (max-width: 768px) {
+        min-width: unset;
+        width: 100%;
+      }
     }
   
     .score-item {
@@ -205,7 +249,7 @@
       .score-value {
         display: flex;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: center;
         gap: 4px;
   
         .number {
@@ -216,7 +260,7 @@
   
         .total {
           font-size: 16px;
-          color: #666;
+          color: #333;
           margin-left: 4px;
         }
   
@@ -235,8 +279,6 @@
       }
   
       .score-change {
-        font-size: 14px;
-        
         .change-value {
           color: #F6A723;
         }
@@ -249,12 +291,17 @@
     }
   
     .header-footer {
-        width: 100%;
+      width: 100%;
       display: flex;
       justify-content: space-between;
       color: #666;
       font-size: 14px;
-  
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 12px;
+      }
+
       .industry-info {
         .industry {
             font-size: 20px;

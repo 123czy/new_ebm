@@ -1,5 +1,5 @@
- <template>
-    <div class="header-content">
+<template>
+    <div class="header-content" :class="{ 'is-fixed': isFixed }">
         <el-header>
           <div class="header-left">
             <img src="@/assets/svg/emb-logo-dark.svg" alt="logo" />
@@ -40,11 +40,12 @@
  </template>
 
  <script setup lang="ts">
- import { ref, computed } from 'vue'
+ import { ref, computed, onMounted, onUnmounted } from 'vue'
  import { useI18n } from 'vue-i18n'
  import { ArrowDown } from '@element-plus/icons-vue'
  const { locale } = useI18n()
  const currentLang = computed(() => locale.value)
+ const isFixed = ref(false)
 
  const toggleLang = () => {
   locale.value = locale.value === 'zh' ? 'en' : 'zh'
@@ -52,6 +53,18 @@
  const handleCommand = (command: string) => {
   console.log(command)
 }
+
+const handleScroll = () => {
+  isFixed.value = window.scrollY > 0
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
  </script>  
 
 <style lang="scss" scoped>
@@ -65,53 +78,72 @@
     align-items: center;
     justify-content: center;
     background: #fff;
-        .el-header {     
-            width: 77%;
+    position: relative;
+    transition: all 0.3s ease;
+    z-index: 1000;
+
+    &.is-fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .el-header {
+        width: 1200px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0;
+        @media (max-width: 768px) {
+          width: 100%;
+        }
+        .header-left {
+          width: 50%;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          img {
+            width: 50px;
+            height: 50px;
+          }
+          .header-title {
+            font-size: 15px;
+            color: rgba(0, 0, 0, .9);
+            padding: 0 12px;
+          }
+          .header-title2 {
+            font-size: 15px;
+            color: rgba(0, 0, 0, .5);
+            padding: 0 12px;
+          }
+        }
+        .header-right {
+          width: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          gap: 10px;
+          .lang-btn {
+            margin-right: 10px;
+          }
+          .user-info {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            .header-left {
-              width: 50%;
-              display: flex;
-              align-items: center;
-              gap: 10px;
-              img {
-                width: 50px;
-                height: 50px;
-              }
-              .header-title {
-                font-size: 15px;
-                color: rgba(0, 0, 0, .9);
-                padding: 0 12px;
-              }
-              .header-title2 {
-                font-size: 15px;
-                color: rgba(0, 0, 0, .5);
-                padding: 0 12px;
-              }
-            }
-            .header-right {
-              width: 50%;
-              display: flex;
-              align-items: center;
-              justify-content: flex-end;
-              gap: 10px;
-              .lang-btn {
-                margin-right: 10px;
-              }
-              .user-info {
-                display: flex;
-                align-items: center;
-                padding:0 12px;
-              }
-              .user-name {
-                margin-left:12px;
-              }
-              .user-count {
-                font-size: 12px;
-                color: #9aa0ac!important;
-              }
-            }
+            padding:0 12px;
+          }
+          .user-name {
+            margin-left:12px;
+          }
+          .user-count {
+            font-size: 12px;
+            color: #9aa0ac!important;
+          }
         }
     }
+}
+
+.header-content.is-fixed + * {
+  margin-top: 76px;
+}
 </style>
