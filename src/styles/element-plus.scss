@@ -1,0 +1,27 @@
+// Element Plus 组件样式覆盖
+.el-button {
+  &--large {
+    --el-button-size: 40px;
+  }
+  
+  &--default {
+    --el-button-size: 32px;
+  }
+  
+  &--small {
+    --el-button-size: 24px;
+  }
+}
+
+// 其他 Element Plus 组件样式覆盖
+.el-input {
+  &__wrapper {
+    font-size: 14px;
+  }
+}
+
+.el-form {
+  &-item {
+    margin-bottom: 18px;
+  }
+} 

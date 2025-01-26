@@ -1,0 +1,55 @@
+// Base sizes
+$base-font-size: 16px;
+$base-font-size-mobile: 14px;
+$flex-base-font-size: 16px;
+$flex-base-line-height: 24px;
+
+// Breakpoints
+$breakpoints: (
+  'tablet': '(max-width: 768px)',
+  'tablet-landscape': '(max-width: 1024px)',
+  'desktop-small': '(max-width: 1280px)',
+  'desktop': '(min-width: 1281px)'
+);
+
+// Breakpoints
+$breakpoint-mobile: 768px;
+$breakpoint-tablet: 1024px;
+$breakpoint-desktop: 1920px;
+
+// Additional breakpoints for responsive mixin
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Colors
+
+$primary-color: #2B5BDD;
+$secondary-color: #F5F7FA;
+$background-color: #000000;
+$text-primary: #333333;
+$text-secondary: #666666;
+$white: #FFFFFF;
+$purple: #467fcf;
+$purple-light: #316cbe;
+$button-register-color: #ef4945;
+$table-bg:#e6e6e6;
+$table-button:#36235f;
+$table-border-color:#e1e1e1;
+
+// Container
+$container-max-width: 1200px;
+$container-padding: 15px;
+
+// Font sizes
+$font-size-base: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 24px;
+$font-size-xxl: 32px;
+
+:export {
+  primaryColor: $primary-color;
+  textColor: $text-primary;
+  backgroundColor: $background-color;
+}

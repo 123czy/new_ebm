@@ -1,0 +1,432 @@
+@use './element-plus' as *;
+@use './variables' as *;
+@use './reset' as *;
+@use './utilities' as *;
+@use './table' as *;
+// Reset styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  font-size: $font-size-base;
+  line-height: 1.5;
+  color: $text-primary;
+  background-color: $secondary-color;
+}
+
+#app {
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Global container class
+.container {
+  @include container;
+}
+
+// Utility classes
+.text-center {
+  text-align: center;
+}
+
+.text-primary {
+  color: $primary-color;
+}
+
+.text-secondary {
+  color: $text-secondary;
+}
+
+// REM adaptation
+html {
+  font-size: $base-font-size;
+  font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
+  @include mobile {
+    font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: $base-font-size-mobile;
+  }
+}
+
+// Add flexible viewport adaptation
+@media screen and (max-width: $breakpoint-mobile) {
+  html {
+    font-size: calc(100vw / 375 * 16);
+    font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
+  }
+}
+
+@media screen and (min-width: $breakpoint-desktop) {
+  html {
+    font-size: calc(100vw / 1920 * 16);
+    font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
+  }
+}
+
+@media (min-width: 768px){
+
+  .l-cell-s-1, .l-cell-s-2, .l-cell-s-3, .l-cell-s-4, .l-cell-s-5, .l-cell-s-6, .l-cell-s-7, .l-cell-s-8, .l-cell-s-9, .l-cell-s-10, .l-cell-s-11, .l-cell-s-12{
+    float: left;
+  }
+
+  .l-cell-s-12{
+    width: 100%;
+  }
+
+  .l-cell-s-11{
+    width: 91.66666667%;
+  }
+
+  .l-cell-s-10{
+    width: 83.33333333%;
+  }
+
+  .l-cell-s-9{
+    width: 75%;
+  }
+
+  .l-cell-s-8{
+    width: 66.66666667%;
+  }
+
+  .l-cell-s-7{
+    width: 58.33333333%;
+  }
+
+  .l-cell-s-6{
+    width: 50%;
+  }
+
+  .l-cell-s-5{
+    width: 41.66666667%;
+  }
+
+  .l-cell-s-4{
+    width: 33.33333333%;
+  }
+
+  .l-cell-s-3{
+    width: 25%;
+  }
+
+  .l-cell-s-2{
+    width: 16.66666667%;
+  }
+
+  .l-cell-s-1{
+    width: 8.33333333%;
+  }
+
+
+
+
+
+  /* Cell S offset settings - Small devices
+  ========================================================================== */
+
+  .l-cell-s-off-12{
+    margin-left: 100%;
+  }
+
+  .l-cell-s-off-11{
+    margin-left: 91.66666667%;
+  }
+
+  .l-cell-s-off-10{
+    margin-left: 83.33333333%;
+  }
+
+  .l-cell-s-off-9{
+    margin-left: 75%;
+  }
+
+  .l-cell-s-off-8{
+    margin-left: 66.66666667%;
+  }
+
+  .l-cell-s-off-7{
+    margin-left: 58.33333333%;
+  }
+
+  .l-cell-s-off-6{
+    margin-left: 50%;
+  }
+
+  .l-cell-s-off-5{
+    margin-left: 41.66666667%;
+  }
+
+  .l-cell-s-off-4{
+    margin-left: 33.33333333%;
+  }
+
+  .l-cell-s-off-3{
+    margin-left: 25%;
+  }
+
+  .l-cell-s-off-2{
+    margin-left: 16.66666667%;
+  }
+
+  .l-cell-s-off-1{
+    margin-left: 8.33333333%;
+  }
+
+  .l-cell-s-off-0{
+    margin-left: 0%;
+  }
+
+}
+
+
+
+
+
+/* Cell M settings - Medium devices
+========================================================================== */
+
+@media (min-width: 992px){
+
+  .l-cell-m-1, .l-cell-m-2, .l-cell-m-3, .l-cell-m-4, .l-cell-m-5, .l-cell-m-6, .l-cell-m-7, .l-cell-m-8, .l-cell-m-9, .l-cell-m-10, .l-cell-m-11, .l-cell-m-12{
+    float: left;
+  }
+
+  .l-cell-m-12{
+    width: 100%;
+  }
+
+  .l-cell-m-11{
+    width: 91.66666667%;
+  }
+
+  .l-cell-m-10{
+    width: 83.33333333%;
+  }
+
+  .l-cell-m-9{
+    width: 75%;
+  }
+
+  .l-cell-m-8{
+    width: 66.66666667%;
+  }
+
+  .l-cell-m-7{
+    width: 58.33333333%;
+  }
+
+  .l-cell-m-6{
+    width: 50%;
+  }
+
+  .l-cell-m-5{
+    width: 41.66666667%;
+  }
+
+  .l-cell-m-4{
+    width: 33.33333333%;
+  }
+
+  .l-cell-m-3{
+    width: 25%;
+  }
+
+  .l-cell-m-2{
+    width: 16.66666667%;
+  }
+
+  .l-cell-m-1{
+    width: 8.33333333%;
+  }
+
+
+
+
+
+  /* Cell M offset settings - Medium devices
+  ========================================================================== */
+
+  .l-cell-m-off-12{
+    margin-left: 100%;
+  }
+
+  .l-cell-m-off-11{
+    margin-left: 91.66666667%;
+  }
+
+  .l-cell-m-off-10{
+    margin-left: 83.33333333%;
+  }
+
+  .l-cell-m-off-9{
+    margin-left: 75%;
+  }
+
+  .l-cell-m-off-8{
+    margin-left: 66.66666667%;
+  }
+
+  .l-cell-m-off-7{
+    margin-left: 58.33333333%;
+  }
+
+  .l-cell-m-off-6{
+    margin-left: 50%;
+  }
+
+  .l-cell-m-off-5{
+    margin-left: 41.66666667%;
+  }
+
+  .l-cell-m-off-4{
+    margin-left: 33.33333333%;
+  }
+
+  .l-cell-m-off-3{
+    margin-left: 25%;
+  }
+
+  .l-cell-m-off-2{
+    margin-left: 16.66666667%;
+  }
+
+  .l-cell-m-off-1{
+    margin-left: 8.33333333%;
+  }
+
+  .l-cell-m-off-0{
+    margin-left: 0%;
+  }
+
+}
+
+
+
+
+
+/* Cell L settings - Large devices
+========================================================================== */
+
+@media (min-width: 1200px){
+
+  .l-cell-l-1, .l-cell-l-2, .l-cell-l-3, .l-cell-l-4, .l-cell-l-5, .l-cell-l-6, .l-cell-l-7, .l-cell-l-8, .l-cell-l-9, .l-cell-l-10, .l-cell-l-11, .l-cell-l-12 {
+    float: left;
+  }
+
+  .l-cell-l-12{
+    width: 100%;
+  }
+
+  .l-cell-l-11{
+    width: 91.66666667%;
+  }
+
+  .l-cell-l-10{
+    width: 83.33333333%;
+  }
+
+  .l-cell-l-9{
+    width: 75%;
+  }
+
+  .l-cell-l-8{
+    width: 66.66666667%;
+  }
+
+  .l-cell-l-7{
+    width: 58.33333333%;
+  }
+
+  .l-cell-l-6{
+    width: 50%;
+  }
+
+  .l-cell-l-5{
+    width: 41.66666667%;
+  }
+
+  .l-cell-l-4{
+    width: 33.33333333%;
+  }
+
+  .l-cell-l-3{
+    width: 25%;
+  }
+
+  .l-cell-l-2{
+    width: 16.66666667%;
+  }
+
+  .l-cell-l-1{
+    width: 8.33333333%;
+  }
+
+
+
+
+
+  /* Cell L offset settings - Large devices
+  ========================================================================== */
+
+  .l-cell-l-off-12{
+    margin-left: 100%;
+  }
+
+  .l-cell-l-off-11{
+    margin-left: 91.66666667%;
+  }
+
+  .l-cell-l-off-10{
+    margin-left: 83.33333333%;
+  }
+
+  .l-cell-l-off-9{
+    margin-left: 75%;
+  }
+
+  .l-cell-l-off-8{
+    margin-left: 66.66666667%;
+  }
+
+  .l-cell-l-off-7{
+    margin-left: 58.33333333%;
+  }
+
+  .l-cell-l-off-6{
+    margin-left: 50%;
+  }
+
+  .l-cell-l-off-5{
+    margin-left: 41.66666667%;
+  }
+
+  .l-cell-l-off-4{
+    margin-left: 33.33333333%;
+  }
+
+  .l-cell-l-off-3{
+    margin-left: 25%;
+  }
+
+  .l-cell-l-off-2{
+    margin-left: 16.66666667%;
+  }
+
+  .l-cell-l-off-1{
+    margin-left: 8.33333333%;
+  }
+
+  .l-cell-l-off-0{
+    margin-left: 0%;
+  }
+
+}
