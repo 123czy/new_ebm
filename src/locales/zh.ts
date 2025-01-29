@@ -259,6 +259,55 @@ export default {
     title: '标题',
     date: '日期',
     views: '浏览量'
+  },
+  "profile": {
+    "title": "个人信息",
+    "name": "名称",
+    "email": "电子邮件",
+    "phone": "手机号码",
+    "phonePlaceholder": "请输入手机号码",
+    "organization": "组织机构",
+    "organizationTip": "如需更改组织机构，请",
+    "contactSupport": "联系支持"
+  },
+  "emailPreferences": {
+    "title": "邮件订阅",
+    "weeklyReport": "接收每周组织社交表现与竞争对手对比报告",
+    "monthlyReport": "接收每月组织社交表现报告"
+  },
+  "commonSaves": {
+    "save": "保存",
+    "saveSuccess": "保存成功"
+  },
+  "validation": {
+    "nameRequired": "请输入名称",
+    "emailRequired": "请输入邮箱",
+    "emailInvalid": "请输入正确的邮箱格式"
+  },
+  "plans": {
+    "title": "会员计划",
+    "year": "年",
+    "currentPlan": "当前会员计划",
+    "choosePlan": "选择计划",
+    "basic": {
+      "name": "基础用户"
+    },
+    "premium": {
+      "name": "高级用户"
+    },
+    "enterprise": {
+      "name": "企业用户"
+    },
+    "features": {
+      "orgQuota": "500家引组织",
+      "exchanges": "4社交账户",
+      "weeklyReport": "每周最佳表现者",
+      "topFive": "每周前五名",
+      "monitoring": "直接竞争对手监测",
+      "autoReport": "自动报告"
+    },
+    "yourCurrentPlan": "您目前的会员计划",
+    "upgrade": "升级计划"
   }
 }
 

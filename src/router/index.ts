@@ -45,6 +45,15 @@ const routes: RouteRecordRaw[] = [
         component: () => import('@/views/BestPerformers.vue')
       }
     ]
+  },
+  {
+    path: '/membership',
+    name: 'MembershipPlan',
+    component: () => import('@/views/MembershipPlan.vue'),
+    meta: {
+      layout: 'main',
+      requiresAuth: true
+    }
   }
 ]
 

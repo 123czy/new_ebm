@@ -202,6 +202,55 @@ export default {
     mentions: 'Mentions',
     shares: 'Shares',
     totalReach: 'Total Reach'
+  },
+  "profile": {
+    "title": "My Profile",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "phonePlaceholder": "Enter your phone number",
+    "organization": "Organization",
+    "organizationTip": "To change your organization, please",
+    "contactSupport": "contact support"
+  },
+  "emailPreferences": {
+    "title": "Email Preferences",
+    "weeklyReport": "Receive a weekly report on your organization's social performance compared to its competitors",
+    "monthlyReport": "Receive a monthly report on your organization's social performance"
+  },
+  "commonSaves": {
+    "save": "Save",
+    "saveSuccess": "Saved successfully"
+  },
+  "validation": {
+    "nameRequired": "Please input name",
+    "emailRequired": "Please input email",
+    "emailInvalid": "Please input valid email"
+  },
+  "plans": {
+    "title": "Membership Plans",
+    "year": "year",
+    "currentPlan": "Current Plan",
+    "choosePlan": "Choose Plan",
+    "basic": {
+      "name": "Basic User"
+    },
+    "premium": {
+      "name": "Premium User"
+    },
+    "enterprise": {
+      "name": "Enterprise User"
+    },
+    "features": {
+      "orgQuota": "500 Organization Quota",
+      "exchanges": "4 Exchanges",
+      "weeklyReport": "Weekly Performance Report",
+      "topFive": "Weekly Top 5",
+      "monitoring": "Real-time Monitoring",
+      "autoReport": "Automated Reports"
+    },
+    "yourCurrentPlan": "Your current plan",
+    "upgrade": "Upgrade Plan"
   }
 }
 
