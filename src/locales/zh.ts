@@ -277,12 +277,17 @@ export default {
   },
   "commonSaves": {
     "save": "保存",
-    "saveSuccess": "保存成功"
+    "saveSuccess": "保存成功",
+    "back": '返回',
+    "edit":'编辑',
+    "delete": '删除',
+    "browse": '浏览',
   },
   "validation": {
     "nameRequired": "请输入名称",
     "emailRequired": "请输入邮箱",
-    "emailInvalid": "请输入正确的邮箱格式"
+    "emailInvalid": "请输入正确的邮箱格式",
+    industryRequired: '请选择行业'
   },
   "plans": {
     "title": "会员计划",
@@ -308,6 +313,27 @@ export default {
     },
     "yourCurrentPlan": "您目前的会员计划",
     "upgrade": "升级计划"
-  }
+  },
+  "changePassword": {
+    "title": "更改密码",
+    "newPassword": "新密码",
+    "newPasswordPlaceholder": "请输入新密码",
+    "confirmPassword": "确认新密码",
+    "confirmPasswordPlaceholder": "请确认新密码",
+    "returnToProfile": "返回到我的资料",
+    "successMessage": "密码修改成功"
+  },
+  organization: {
+    settings: '组织设置',
+    information: '组织信息',
+    name: '名称',
+    industry: '行业',
+    introduction: '组织介绍',
+    introductionPlaceholder: '请输入组织介绍',
+    website: '网站',
+    websitePlaceholder: '例如：https://www.example.com',
+    logo: 'Logo',
+    socialChannels: '社交渠道（雇主品牌相关）'
+  },
 }
 

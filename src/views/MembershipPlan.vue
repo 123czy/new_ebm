@@ -1,6 +1,5 @@
 <template>
   <div class="membership-plan">
-    <organize-header />
     
     <div class="main-content">
       <el-collapse v-model="activeCollapse">
@@ -154,7 +153,7 @@
       </div>
     </div>
 
-    <organize-footer />
+  
   </div>
 </template>
 
@@ -266,18 +265,12 @@ const handleSave = async () => {
   min-height: 100vh;
   background-color: #f5f7fa;
   
-  .main-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 24px;
+  .el-card {
+    margin-bottom: 24px;
+    border-radius: 8px;
     
-    .el-card {
-      margin-bottom: 24px;
-      border-radius: 8px;
-      
-      &:last-child {
-        margin-bottom: 0;
-      }
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 }

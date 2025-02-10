@@ -5,7 +5,11 @@ export default {
     about: 'About the EBM Index',
     how:'How to Join',
     login:'Sign-in',
-    register:'Register'
+    register:'Register',
+    save: 'Save',
+    back: 'Back',
+    browse: 'Browse',
+    saveSuccess: 'Saved successfully'
   },
   home: {
     title: 'Employer Brand Monitor',
@@ -220,7 +224,11 @@ export default {
   },
   "commonSaves": {
     "save": "Save",
-    "saveSuccess": "Saved successfully"
+    "saveSuccess": "Saved successfully",  
+    "back": 'Back',
+    "edit":'Edit',
+    "delete": 'Delete',
+    "browse": 'Browse',
   },
   "validation": {
     "nameRequired": "Please input name",
@@ -251,6 +259,27 @@ export default {
     },
     "yourCurrentPlan": "Your current plan",
     "upgrade": "Upgrade Plan"
+  },
+  "changePassword": {
+    "title": "Change Password",
+    "newPassword": "New Password",
+    "newPasswordPlaceholder": "Please enter new password",
+    "confirmPassword": "Confirm New Password",
+    "confirmPasswordPlaceholder": "Please confirm new password",
+    "returnToProfile": "back to profile",
+    "successMessage": "Password changed successfully"
+  },
+  organization: {
+    settings: 'Organization Settings',
+    information: 'Organization Information',
+    name: 'Name',
+    industry: 'Industry',
+    introduction: 'Organization Introduction',
+    introductionPlaceholder: 'Enter Organization Introduction',
+    website: 'Website',
+    websitePlaceholder: 'e.g: https://www.example.com',
+    logo: 'Logo',
+    socialChannels: 'Social Channels (Employer Branding related)'
   }
 }
-
+  

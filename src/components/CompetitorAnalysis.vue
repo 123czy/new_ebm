@@ -41,7 +41,7 @@
           :key="column.prop"
           :prop="column.prop"
           :label="t(column.label)"
-          :width="column.width">
+          :width="column?.width">
           <template #default="scope">
             <span :class="{ 'highlight': isHighlighted(scope.row, column.prop) }">
               {{ formatValue(scope.row[column.prop]) }}
@@ -69,8 +69,8 @@
   
   const tableColumns = [
     { prop: 'bmw', label: 'analysis.columns.bmw' },
-    { prop: 'benz', label: 'analysis.columns.benz' },
-    { prop: 'audi', label: 'analysis.columns.audi' }
+    { prop: 'benz', label: 'analysis.columns.benz'  },
+    { prop: 'audi', label: 'analysis.columns.audi'},
   ];
   
   interface CompetitorData {
