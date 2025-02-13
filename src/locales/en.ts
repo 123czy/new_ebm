@@ -142,6 +142,7 @@ export default {
   },
   platforms: {
     all: 'All Platforms',
+    ALL:'All',
     weibo: 'Weibo',
     wechat: 'WeChat',
     douyin: 'Douyin',
@@ -229,6 +230,8 @@ export default {
     "edit":'Edit',
     "delete": 'Delete',
     "browse": 'Browse',
+    "backToList": "Back to listing",
+    "backToEdit": "Back to edit page" 
   },
   "validation": {
     "nameRequired": "Please input name",
@@ -271,7 +274,15 @@ export default {
   },
   organization: {
     settings: 'Organization Settings',
+    btn_posts:'view posts',
+    btn_data:'View data',
+    btn_activity:'View activity log',
+    btn_daily:'View crawler log',
     information: 'Organization Information',
+    publish:'Published',
+    publish_text: 'Only published organizations are displayed on the website',
+    fetch:'Fetching data',
+    fetch_text: 'Have crawlers fetch data for this organization',
     name: 'Name',
     industry: 'Industry',
     introduction: 'Organization Introduction',
@@ -279,7 +290,11 @@ export default {
     website: 'Website',
     websitePlaceholder: 'e.g: https://www.example.com',
     logo: 'Logo',
-    socialChannels: 'Social Channels (Employer Branding related)'
+    socialChannels: 'Social Channels (Employer Branding related)',
+    Competitors :'Competitors',
+    CompetitorsPlaceholder: 'Type an organization name',
+    Competitors_text:'Max',
+    newData:'New Data'
   }
 }
   

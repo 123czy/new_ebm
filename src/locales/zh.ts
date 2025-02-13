@@ -164,6 +164,7 @@ export default {
   },
   platforms: {
     all: '通过社交平台筛选',
+    ALL:'所有',
     weibo: '微博',
     wechat: '微信',
     douyin: '抖音',
@@ -282,12 +283,14 @@ export default {
     "edit":'编辑',
     "delete": '删除',
     "browse": '浏览',
+    "backToList": "返回 到清单",
+    "backToEdit": "返回 编辑页面"  
   },
   "validation": {
     "nameRequired": "请输入名称",
     "emailRequired": "请输入邮箱",
     "emailInvalid": "请输入正确的邮箱格式",
-    industryRequired: '请选择行业'
+    "industryRequired": '请选择行业'
   },
   "plans": {
     "title": "会员计划",
@@ -325,15 +328,27 @@ export default {
   },
   organization: {
     settings: '组织设置',
+    btn_posts:'查看帖子',
+    btn_data:'查看数据',
+    btn_activity:'查看活动日志',
+    btn_daily:'查看爬虫日志',
     information: '组织信息',
+    publish:'已发布',
+    publish_text: '网站上只显示已发布的组织',
+    fetch:'获取数据',
+    fetch_text: '使用爬虫获取该组织的数据',
     name: '名称',
     industry: '行业',
     introduction: '组织介绍',
     introductionPlaceholder: '请输入组织介绍',
     website: '网站',
     websitePlaceholder: '例如：https://www.example.com',
-    logo: 'Logo',
-    socialChannels: '社交渠道（雇主品牌相关）'
+    logo: '徽标',
+    socialChannels: '社交渠道（雇主品牌相关）',
+    Competitors :'竞争对手',
+    CompetitorsPlaceholder: '请输入一个组织名称',
+    Competitors_text:'最多5个',
+    newData:'新数据'
   },
 }
 

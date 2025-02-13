@@ -67,7 +67,7 @@ const handlePageChange = (pagination: { page: number; pageSize: number }) => {
 }
 
 const handleEdit = (row: any) => {
-  router.push({ path: '/management/organization/5' })
+  router.push({ path: '/app/management/organization/5' })
   console.log('Edit row:', row)
   // Implement edit logic here
 }

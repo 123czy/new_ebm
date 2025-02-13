@@ -35,6 +35,11 @@ const routes: RouteRecordRaw[] = [
     component: MainLayout,
     children: [
       {
+        path: '',
+        name: 'BestPerformers',
+        component: () => import('@/views/BestPerformers.vue')
+      },
+      {
         path: 'my-organization',
         name: 'MyOrganization',
         component: () => import('@/views/MyOrganization.vue'),
@@ -63,36 +68,49 @@ const routes: RouteRecordRaw[] = [
         ]
       },
       {
-        path: '',
-        name: 'BestPerformers',
-        component: () => import('@/views/BestPerformers.vue')
-      },
-      {
-        path:'management/organization',
-        name:'DataManageOrganization',
-        component: () => import('@/views/DataManage.vue'),
+        path: 'management',
         children: [
           {
-            path: 'edit/:id',
-            name: 'OrganizationEdit',
-            component: () => import('@/views/OrganizationEdit.vue')
+            path: 'organization',
+            children: [
+              {
+                path: '',
+                name: 'DataManageOrganization',
+                component: () => import('@/views/DataManage.vue')
+              },
+              {
+                path: 'edit/:id',
+                name: 'OrganizationEdit',
+                component: () => import('@/views/OrganizationEdit.vue')
+              },
+              {
+                path: 'edit/:id/post',
+                name: 'OrganizationEditPost',
+                component: () => import('@/views/OrganizationEditPost.vue')
+              },
+              {
+                path: 'edit/:id/data',
+                name: 'OrganizationEditData',
+                component: () => import('@/views/OrganizationEditPost.vue')
+              },
+              {
+                path: ':id',
+                name: 'DataManageOrganizationDetail',
+                component: () => import('@/views/DataManageDetail.vue')
+              }
+            ]
           },
+          {
+            path: 'industry',
+            name: 'DataImport',
+            component: () => import('@/views/DataManage.vue')
+          },
+          {
+            path: 'channel',
+            name: 'DataExport',
+            component: () => import('@/views/DataManage.vue')
+          }
         ]
-      },
-      {
-        path: '/management/organization/:id',
-        name:'DataManageOrganizationDetail',
-        component: () => import('@/views/DataManageDetail.vue')
-      },
-      {
-        path:'management/industry',
-        name:'DataImport',
-        component: () => import('@/views/DataManage.vue')
-      },
-      {
-        path:'management/channel',
-        name:'DataExport',
-        component: () => import('@/views/DataManage.vue')
       },
       {
         path:'admin',

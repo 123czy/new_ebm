@@ -1,13 +1,20 @@
 <template>
     <div class="footer">
+        <div class="footer-left">
         <el-button class="btn" size="large" icon="Back" @click="handleBack">{{ t('commonSaves.back') }}</el-button>
         <el-button class="btn" size="large" icon="Edit">{{ t('commonSaves.edit') }}</el-button>
         <el-button class="del_btn" size="large" icon="Delete">{{ t('commonSaves.delete') }}</el-button>
+        </div>
+        <div class="footer-right">
+          <slot></slot>
+        </div>
+        
     </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+ import { Document } from '@element-plus/icons-vue'
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
@@ -16,12 +23,14 @@ const router = useRouter()
 const handleBack = () => {
     router.go(-1)
 }
+
 </script>
 
 <style lang="scss" scoped>
 .footer {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
+    align-items: center;
     padding: 16px 24px;
     margin:24px 0;
     background: #fff;
