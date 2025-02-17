@@ -294,7 +294,8 @@ export default {
     Competitors :'Competitors',
     CompetitorsPlaceholder: 'Type an organization name',
     Competitors_text:'Max',
-    newData:'New Data'
+    newData:'New Data',
+    noData:'No data available in table'
   }
 }
   

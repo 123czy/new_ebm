@@ -348,7 +348,8 @@ export default {
     Competitors :'竞争对手',
     CompetitorsPlaceholder: '请输入一个组织名称',
     Competitors_text:'最多5个',
-    newData:'新数据'
+    newData:'新数据',
+    noData:'表中无数据'
   },
 }
 

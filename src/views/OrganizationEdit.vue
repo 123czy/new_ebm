@@ -3,10 +3,10 @@
         <div class="header">
             <div class="header-left">{{ t('organization.settings') }}</div>
             <div class="header-right">
-                <el-button class="btn" size="large" @click="toPath('/post')">{{ t('organization.btn_posts') }}</el-button>
-                <el-button class="btn" size="large" @click="toPath('/post')">{{ t('organization.btn_data') }}</el-button>
-                <el-button class="btn" size="large" @click="toPath('post')">{{ t('organization.btn_activity') }}</el-button>
-                <el-button class="btn" size="large" @click="toPath('post')">{{ t('organization.btn_daily') }}</el-button>
+                <el-button class="btn" size="large" @click="toPath(1,'/post')">{{ t('organization.btn_posts') }}</el-button>
+                <el-button class="btn" size="large" @click="toPath(1,'/data')">{{ t('organization.btn_data') }}</el-button>
+                <el-button class="btn" size="large" @click="toPath(2,'/app/management/organization/activity/')">{{ t('organization.btn_activity') }}</el-button>
+                <el-button class="btn" size="large" @click="toPath(2,'/app/management/organization/')">{{ t('organization.btn_daily') }}</el-button>
             </div>
         </div>
 
@@ -211,8 +211,14 @@
     }
   }
 
-  const toPath = (val:string) => {
-    router.push({path: route.fullPath + val})
+
+  const toPath = (type:number,val:string) => {
+    if(type === 1){
+        router.push({path: route.fullPath + val})
+    }else{
+      const id = route.params.id
+      router.push({path: val + id + '/crawler-log'})
+    }
   }
   
   </script>

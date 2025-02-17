@@ -5,7 +5,7 @@
           <img src="@/assets/svg/emb-logo-dark.svg" alt="logo" />
           <div class="header-title" @click="toPath('my-organization')">我的企业组织</div>
           <div class="header-title2" @click="toPath('')">最佳表现者</div>
-          <el-dropdown trigger="click" @command="handleCommand">
+          <el-dropdown trigger="click" @command="handleManageCommand">
       <span class="el-dropdown-link px-20">
         数据管理<el-icon class="el-icon--right"><CaretBottom /></el-icon>
       </span>
@@ -15,7 +15,7 @@
         </el-dropdown-menu>
       </template>
     </el-dropdown>
-    <el-dropdown trigger="click"  @command="handleCommand">
+    <el-dropdown trigger="click"  @command="handleAdminCommand">
       <span class="el-dropdown-link pl-20">
         管理员<el-icon class="el-icon--right"><CaretBottom /></el-icon>
       </span>
@@ -138,8 +138,12 @@ locale.value = locale.value === 'zh' ? 'en' : 'zh'
 const toPath = (val: string) => {
 router.push('/app/'+ val)
 }
-const handleCommand = (command: string) => {
+const handleManageCommand = (command: string) => {
 router.push('/app/management/'+ command)
+console.log("handleCommand",command)
+}
+const handleAdminCommand = (command: string) => {
+router.push('/app/admin/'+ command)
 console.log("handleCommand",command)
 }
 

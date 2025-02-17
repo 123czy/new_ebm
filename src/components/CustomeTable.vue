@@ -1,7 +1,12 @@
 <template>
     <div class="custom-table">
       <!-- Search Bar -->
-      <div class="table_header">
+      <div class="table_title" v-if="showTitle">
+        <div class="title">
+          <span class="title-text">{{ tableTitle }}</span>
+        </div>
+      </div>
+      <div class="table_header" v-if="showTableHeader">
         <div class="search-bar">
         搜索
         <el-input
@@ -11,7 +16,7 @@
           @input="handleSearch"
         >
         </el-input>
-      </div>
+        </div>
       <div class="channel" v-if="showChannel">
         <span class="filter-label">渠道：</span>
               <el-select v-model="channel" style="width: 150px" class="filter-select">
@@ -28,6 +33,7 @@
         style="width: 100%"
         :border="border"
         v-bind="$attrs"
+        :empty-text="t('organization.noData')"
       >
         <slot></slot>
       </el-table>
@@ -60,6 +66,9 @@
   const { t } = useI18n()
   interface Props {
     data: any[],
+    tableTitle?: string,
+    showTitle?: boolean,
+    showTableHeader?: boolean,
     showChannel?: boolean,
     border?: boolean
   }
@@ -101,6 +110,9 @@
 
   
   const props = withDefaults(defineProps<Props>(), {
+    tableTitle:'',
+    showTitle: false,
+    showTableHeader: true,
     showChannel: false,
     border: false
   })
@@ -151,9 +163,19 @@
     align-items: center;  
     border-bottom: 1px solid rgba(0,40,100,.12);
   }
+
+  .table_title{
+    padding: 16px 12px ;
+    border-bottom: 1px solid rgba(0,40,100,.12);
+    .title-text{
+    font-size: 18px;
+    color: $table-header-color;
+    }
+  }
+  
   
   .search-bar {
-    color: #495057;
+    color: $table-header-color;
   }
   
   .search-input {

@@ -79,6 +79,11 @@ const routes: RouteRecordRaw[] = [
                 component: () => import('@/views/DataManage.vue')
               },
               {
+                path: ':id',
+                name: 'DataManageOrganizationDetail',
+                component: () => import('@/views/DataManageDetail.vue')
+              },
+              {
                 path: 'edit/:id',
                 name: 'OrganizationEdit',
                 component: () => import('@/views/OrganizationEdit.vue')
@@ -94,9 +99,14 @@ const routes: RouteRecordRaw[] = [
                 component: () => import('@/views/OrganizationEditPost.vue')
               },
               {
-                path: ':id',
-                name: 'DataManageOrganizationDetail',
-                component: () => import('@/views/DataManageDetail.vue')
+                path: 'activity/:id',
+                name: 'OrganizationActivity',
+                component: () => import('@/views/OrganizationEditPost.vue')
+              },
+              {
+                path: ':id/crawler-log',
+                name:'OrganizationCrawlerLog',
+                component: () => import('@/views/OrganizationEditPost.vue')
               }
             ]
           },
@@ -106,16 +116,41 @@ const routes: RouteRecordRaw[] = [
             component: () => import('@/views/DataManage.vue')
           },
           {
+            path:'api-user',
+            name:'ApiUser',
+            component: () => import('@/views/OrganizationEditPost.vue')
+          },
+          {
+            path:'crawler',
+            name:'Crawler',
+            component: () => import('@/views/OrganizationEditPost.vue')
+          },
+          {
             path: 'channel',
-            name: 'DataExport',
-            component: () => import('@/views/DataManage.vue')
+            name: 'OrganizationChannel',
+            component: () => import('@/views/OrganizationEditPost.vue')
           }
         ]
       },
       {
         path:'admin',
-        name:'DataManage',
-        component:()=>import('@/views/DataManage.vue')
+        children: [
+          {
+            path: 'user',
+            name: 'AdminUser',
+            component: () => import('@/views/OrganizationEditPost.vue')
+          },
+          {
+            path:'activity',
+            name:'AdminActivity',
+            component: () => import('@/views/OrganizationEditPost.vue')
+          },
+          {
+            path:'notification',
+            name:'AdminNotification',
+            component: () => import('@/views/OrganizationEditPost.vue')
+          }
+        ]
       }
     ]
   }
