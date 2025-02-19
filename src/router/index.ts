@@ -149,8 +149,24 @@ const routes: RouteRecordRaw[] = [
             path:'notification',
             name:'AdminNotification',
             component: () => import('@/views/OrganizationEditPost.vue')
-          }
+          },
+         
         ]
+      },
+      {
+        path:'ai',
+        name:'AiPlatform',
+        component: () => import('@/views/AiPlatform/index.vue')
+      },
+      {
+        path:'rule',
+        name:'AiPlatformRule',
+        component: () => import('@/views/AiPlatform/rule.vue')
+      },
+      {
+        path:'event',
+        name:'AiPlatformEvent',
+        component: () => import('@/views/AiPlatform/event.vue')
       }
     ]
   }

@@ -25,6 +25,17 @@
         </el-dropdown-menu>
       </template>
     </el-dropdown>
+    <el-dropdown trigger="click"  @command="handleAiCommand">
+      <span class="el-dropdown-link pl-20">
+        AI预警<el-icon class="el-icon--right"><CaretBottom /></el-icon>
+      </span>
+      <template #dropdown>
+        <el-dropdown-menu>
+          <el-dropdown-item v-for="item in AiList" :key="item.id"  :icon="item.icon" :command="item.command">{{ item.title }}</el-dropdown-item>
+        </el-dropdown-menu>
+      </template>
+    </el-dropdown>
+    <div class="header-title" @click="openWindow">AI平台</div>
         </div>
         <div class="header-right">
           <el-button class="lang-btn" link @click="toggleLang">
@@ -130,21 +141,49 @@ const managerList = [
 }
 ]
 
-
+const AiList = ref([
+  {
+    id:1,
+    icon:'User',
+    title:'预警规则',
+    command:'rule',
+    path: '/rule'
+  },
+  {
+    id:2,
+    icon:'User',
+    title:'预警事件',
+    command:'event',
+    path: '/event'
+  }
+])
 const toggleLang = () => {
 locale.value = locale.value === 'zh' ? 'en' : 'zh'
+}
+const openWindow = () => {
+  router.push('/app/ai')
 }
 
 const toPath = (val: string) => {
 router.push('/app/'+ val)
 }
+
+const handleCommand = (command: string) => {
+  router.push('/app/management/'+ command)
+}
+
 const handleManageCommand = (command: string) => {
 router.push('/app/management/'+ command)
 console.log("handleCommand",command)
 }
+
 const handleAdminCommand = (command: string) => {
 router.push('/app/admin/'+ command)
 console.log("handleCommand",command)
+}
+
+const handleAiCommand = (command: string) => {
+router.push('/app/'+ command)
 }
 
 const handleScroll = () => {
@@ -192,7 +231,6 @@ window.removeEventListener('scroll', handleScroll)
         width: 100%;
       }
       .header-left {
-        width: 50%;
         display: flex;
         align-items: center;
         gap: 10px;
@@ -212,8 +250,8 @@ window.removeEventListener('scroll', handleScroll)
         }
       }
       .header-right {
-        width: 50%;
         display: flex;
+        flex: 1;
         align-items: center;
         justify-content: flex-end;
         gap: 10px;
