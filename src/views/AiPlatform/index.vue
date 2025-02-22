@@ -236,22 +236,29 @@
           />
         </el-table>
   
-        <div class="pagination">
-          <el-pagination
-            v-model:current-page="currentPage"
-            :page-size="10"
-            :total="total"
-            layout="total, prev, pager, next, jumper"
-          />
-        </div>
+        <div class="pagination-container">
+        <span class="total-info">显示{{ tableData.length }}条中的{{ startIndex }}至{{ endIndex }}条</span>
+        <el-pagination
+          background 
+          layout="prev, pager, next"
+          prev-text="上一页"
+          next-text="下一页"
+          v-model:current-page="currentPage"
+          v-model:page-size="pageSize"
+          :total="total"
+          :page-sizes="[10, 20, 50, 100]"
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+        />
+      </div>
       </div>
 
     <AiContentDrawer  v-model:visible="drawerVisible" :data="currentItem" :title="currentItem?.title" @close="closeDrawer"/>
     </div>
   </template>
   
-  <script setup>
-  import { ref } from 'vue'
+  <script setup lang="ts">
+  import { ref ,computed} from 'vue'
   import { 
     ArrowUpBold,
     Share,
@@ -261,7 +268,7 @@
     Edit,
     Delete
   } from '@element-plus/icons-vue'
-  
+  import { userApi, type LoginParams } from '@/api/user'
   // 筛选相关
   const showMoreFilters = ref(true)
   const filterValue = ref('all')
@@ -280,8 +287,6 @@
   
   // 表格相关
   const multipleTable = ref(null)
-  const currentPage = ref(1)
-  const total = ref(178545)
   const multipleSelection = ref([])
 
   // Mock数据
@@ -381,9 +386,17 @@ const mockData = [
 
 // 更新 tableData 的初始值
 const tableData = ref(mockData)
+
+// 分页数据
+  const currentPage = ref(1)
+  const pageSize = ref(10)
+  const total = computed(() => tableData.value.length)
   
-  const drawerVisible = ref(false)
-  const currentItem = ref(null)
+  const startIndex = computed(() => (currentPage.value - 1) * pageSize.value + 1)
+  const endIndex = computed(() => Math.min(currentPage.value * pageSize.value, total.value))
+  
+const drawerVisible = ref(false)
+const currentItem = ref(null)
 
 const openDrawer = (row) => {
   currentItem.value = row
@@ -414,6 +427,33 @@ const openDrawer = (row) => {
     // 实际应用中返回真实的平台图标
     return 'https://placeholder.com/icon.png'
   }
+
+  const handleLogin = async () => {
+  const loginData: LoginParams = {
+    username: 'admin',
+    password: '123456'
+  }
+
+  try {
+    const res = await userApi.login(loginData)
+    // 这里可以处理登录成功后的逻辑
+    console.log('登录成功：', res.token)
+    // 存储 token
+    localStorage.setItem('token', res.token)
+  } catch (error) {
+    // 处理错误
+    console.error('登录失败：', error)
+  }
+}
+
+const getUserInfo = async () => {
+  try {
+    const userInfo = await userApi.getUserInfo()
+    console.log('用户信息：', userInfo)
+  } catch (error) {
+    console.error('获取用户信息失败：', error)
+  }
+}
   
   const getTags = (type) => {
     return ['非负']
@@ -640,10 +680,12 @@ const openDrawer = (row) => {
       }
     }
   
-    .pagination {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
+    .pagination-container {
+        background-color: $white;
+        padding: 16px 20px 22px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
   }
   
