@@ -27,10 +27,12 @@
           </el-button>
         </div>
   
-        <div :class="{ collapsed: !showMoreFilters }">
+        <div :class="{ collapsed: !showMoreFilters }" >
+          <div class="filter-block">
+          <div class="filter-top">
           <div class="time-filter-row">
             <div class="time-section">
-              <span class="label">发布时间:</span>
+              <span class="label">发布时间</span>
               <el-radio-group v-model="publishTime">
                 <el-radio-button label="today">今天</el-radio-button>
                 <el-radio-button label="24h">24小时</el-radio-button>
@@ -39,6 +41,7 @@
                 <el-radio-button label="30d">30天</el-radio-button>
               </el-radio-group>
               <!-- <el-date-picker
+                size="large"
                 v-model="customTimeRange"
                 type="daterange"
                 placeholder="开始时间-结束时间"
@@ -46,7 +49,7 @@
             </div>
             
             <div class="time-section">
-              <span class="label">采集时间:</span>
+              <span class="label">采集时间</span>
               <el-radio-group v-model="collectTime">
                 <el-radio-button label="today">今天</el-radio-button>
                 <el-radio-button label="24h">24小时</el-radio-button>
@@ -55,6 +58,7 @@
                 <el-radio-button label="30d">30天</el-radio-button>
               </el-radio-group>
               <!-- <el-date-picker
+                size="large"
                 v-model="customCollectRange"
                 type="daterange"
                 placeholder="开始时间-结束时间"
@@ -64,7 +68,7 @@
   
           <div class="filter-row">
             <div class="content-type">
-              <span class="label">内容性质:</span>
+              <span class="label">内容性质</span>
               <el-radio-group v-model="contentType">
                 <el-radio-button label="all">全部</el-radio-button>
                 <el-radio-button label="suspicious">疑似负面</el-radio-button>
@@ -74,17 +78,29 @@
             </div>
   
             <div class="account-type">
-              <span class="label">账号类型:</span>
+              <span class="label">账号类型</span>
               <el-radio-group v-model="accountType">
                 <el-radio-button label="monitored">监控账号</el-radio-button>
                 <el-radio-button label="unmonitored">非监控账号</el-radio-button>
               </el-radio-group>
             </div>
           </div>
+          </div>
+
+          <div class="platform-stats">
+            <span class="label">发布平台</span>
+            <el-radio-group v-model="publishPlat">
+                <el-radio-button label="all">全部(17.8万+)</el-radio-button>
+                <el-radio-button label="douyin">抖音(2.1万+)</el-radio-button>
+                <el-radio-button label="red">小红书(2.3万+)</el-radio-button>
+                <el-radio-button label="blibli">bilibili(10万+)</el-radio-button>
+                <el-radio-button label="weibo">微博(5.1万+)</el-radio-button>
+            </el-radio-group>
+          </div>
   
           <div class="filter-row">
             <div class="fermentation-status">
-              <span class="label">发酵情况:</span>
+              <span class="label">发酵情况</span>
               <el-select v-model="fermentationType" placeholder="点赞数" class="ferment-select">
                 <el-option label="点赞数" value="likes" />
                 <el-option label="评论数" value="comments" />
@@ -96,6 +112,7 @@
                 <el-option label="等于" value="eq" />
               </el-select>
               <el-input
+                size="large"
                 v-model="fermentationValue"
                 placeholder="请输入数字"
                 class="ferment-input"
@@ -104,44 +121,16 @@
             </div>
           </div>
   
-          <div class="platform-stats">
-            <div class="stat-item">
-              <span>全部</span>
-              <span class="count">(17.8万+)</span>
-            </div>
-            <div class="stat-item">
-              <span>抖音</span>
-              <span class="count">(2.1万+)</span>
-            </div>
-            <div class="stat-item">
-              <span>快手</span>
-              <span class="count">(3.2万+)</span>
-            </div>
-            <div class="stat-item">
-              <span>小红书</span>
-              <span class="count">(2.3万+)</span>
-            </div>
-            <div class="stat-item">
-              <span>bilibili</span>
-              <span class="count">(10.1万+)</span>
-            </div>
-            <div class="stat-item">
-              <span>知乎</span>
-              <span class="count">(2,300)</span>
-            </div>
-            <div class="stat-item">
-              <span>微博</span>
-              <span class="count">(2,300)</span>
-            </div>
+         
           </div>
         </div>
   
         <div class="action-row">
           <div class="total">共计: {{ total }}条</div>
-          <div class="buttons">
+          <!-- <div class="buttons">
             <el-button type="primary">导出</el-button>
             <el-button type="primary">删除</el-button>
-          </div>
+          </div> -->
         </div>
       </div>
   
@@ -168,7 +157,11 @@
                   <div class="meta-info">
                     <div class="engagement">
                       <span class="likes">
-                        <!-- <el-icon><Heart /></el-icon> -->
+                        <img class="meta-icon" src="@/assets/svg/like.svg" alt="">
+                        {{ row.likes }}
+                      </span>
+                      <span class="likes">
+                        <el-icon><Star /></el-icon>
                         {{ row.likes }}
                       </span>
                       <span class="shares">
@@ -266,6 +259,7 @@
     DocumentAdd,
     Position,
     Edit,
+    Star,
     Delete
   } from '@element-plus/icons-vue'
   import { userApi, type LoginParams } from '@/api/user'
@@ -279,6 +273,7 @@
   const customCollectRange = ref([])
   const contentType = ref('all')
   const accountType = ref('monitored')
+  const publishPlat = ref('all')
   
   // 发酵情况相关的响应式变量
   const fermentationType = ref('likes')
@@ -365,6 +360,7 @@ const mockData = [
     author: 'Joescon美瞳',
     publishTime: '2021-11-25 22:50',
     collectTime: '2021-11-25 23:00',
+    star: 2300,
     likes: 1914,
     shares: 978,
     comments: 47,
@@ -477,10 +473,6 @@ const getUserInfo = async () => {
         align-items: center;
         margin-bottom: 20px;
   
-        .label {
-          margin-right: 10px;
-          color: #606266;
-        }
   
         .filter-select {
           width: 120px;
@@ -520,6 +512,40 @@ const getUserInfo = async () => {
         overflow: hidden;
         transform-origin: top;
       }
+
+      .filter-block {
+        .time-filter-row,.filter-row{
+          display: grid;
+          grid-template-columns: repeat(2, 1fr); // 将内容分为两列
+          gap: 20px; // 设置网格间距
+          width: 100%;
+          .label{
+            margin-right: 12px;
+          }
+          .content-type,.account-type{
+            display: flex;
+            align-items: center;
+          }
+        }
+  
+
+  .time-filter-row {
+    grid-column: 1 / -1; // 时间筛选占据整行
+  }
+
+  .content-type,
+  .account-type {
+    width: 100%;
+  }
+
+  .fermentation-status {
+    grid-column: 1 / -1; // 发酵情况占据整行
+  }
+
+  .platform-stats {
+    grid-column: 1 / -1; // 平台统计占据整行
+  }
+}
   
   
       .time-filter-row {
@@ -539,10 +565,10 @@ const getUserInfo = async () => {
       .fermentation-status {
         display: flex;
         align-items: center;
-        gap: 10px;
   
         .ferment-select {
           width: 120px;
+          margin-right: 12px;
         }
   
         .ferment-input {
@@ -553,8 +579,10 @@ const getUserInfo = async () => {
       .platform-stats {
         display: flex;
         flex-wrap: wrap;
-        gap: 20px;
         margin-bottom: 20px;
+        .label{
+          margin-right: 12px;
+        }
   
         .stat-item {
           .count {
@@ -611,7 +639,7 @@ const getUserInfo = async () => {
               cursor: pointer;
   
               &:hover {
-                  color: #6b4c93;
+                  color: $ai-page-color;
              }
             }
   
@@ -635,7 +663,13 @@ const getUserInfo = async () => {
                   display: flex;
                   align-items: center;
                   gap: 4px;
+                  img{
+                    width: 18px;
+                  }
                 }
+              }
+              .detail-link{
+                color: $ai-page-color;
               }
             }
   
@@ -644,7 +678,7 @@ const getUserInfo = async () => {
               
               .el-tag {
                 margin-right: 8px;
-                background-color: #6b4c93;
+                background-color: $ai-page-color;
               }
             }
   
@@ -661,7 +695,7 @@ const getUserInfo = async () => {
           }
         }
         th.el-table__cell {
-          background-color: #6b4c93;
+          background-color: $ai-page-color;
           color: #ffffff;
           font-weight: 500;
   
@@ -686,18 +720,49 @@ const getUserInfo = async () => {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        :deep(.el-pagination) {
+
+    &.is-background {
+      .btn-prev,
+      .btn-next,
+      .el-pager li {
+        &:hover {
+          color: $ai-page-color;
+        }
+
+        &.is-active {
+          background-color: $ai-page-color;
+          color: #fff;
+        }
+      }
+    }
+  }
     }
   }
   
   :deep(.el-button--primary) {
-    background-color: #6b4c93;
-    border-color: #6b4c93;
+    background-color: $ai-page-color;
+    border-color: $ai-page-color;
   
     &:hover {
       background-color: #7d5ba8;
       border-color: #7d5ba8;
     }
   }
+
+  :deep(.el-radio-group) {
+  .el-radio-button__inner {
+    &:hover {
+      color: $ai-page-color;
+    }
+  }
+  
+  .el-radio-button__original-radio:checked + .el-radio-button__inner {
+    background-color: $ai-page-color;
+    border-color: $ai-page-color;
+    box-shadow: -1px 0 0 0 $ai-page-color;
+  }
+}
   
   .filter-transition-enter-active,
   .filter-transition-leave-active {

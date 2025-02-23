@@ -24,7 +24,7 @@ $breakpoint-lg: 992px;
 $breakpoint-xl: 1200px;
 
 // Colors
-
+$ai-page-color:#6b4c93;
 $primary-color: #2B5BDD;
 $secondary-color: #F5F7FA;
 $background-color: #000000;
@@ -35,11 +35,13 @@ $purple: #467fcf;
 $purple-light: #316cbe;
 $button-register-color: #ef4945;
 $table-bg:#e6e6e6;
-$table-button:#36235f;
+$table-button:#6b4c93;
+// $table-button:#36235f;
 $table-border-color:#e1e1e1;
 $table-header-color:#495057;
 $table-scroll-color:#ced4da;
 $table-scroll-hover-color:#adb5bd;
+
 // Container
 $container-max-width: 1200px;
 $container-padding: 15px;

@@ -125,9 +125,13 @@
                 {{ data.content }}
               </div>
   
-              <div class="engagement-info">
+              <div class="engagement-info"> 
                 <span class="info-item">
-                  <!-- <el-icon><Heart /></el-icon> -->
+                  <img src="@/assets/svg/like.svg" alt="">
+                  {{ data.likes }}
+                </span>
+                <span class="info-item">
+                  <el-icon><Star /></el-icon>
                   {{ data.likes }}
                 </span>
                 <span class="info-item">
@@ -188,6 +192,7 @@ import {
   Position,
   Edit,
   Delete,
+  Star,
   Share,
   ChatDotRound
 } from '@element-plus/icons-vue'
@@ -225,6 +230,7 @@ const handleClose = () => {
       display: flex;
       align-items: center;
       gap: 4px;
+      color: $table-button;
     }
   }
   
@@ -299,6 +305,9 @@ const handleClose = () => {
   
       .header-content {
         flex: 1;
+        .source-link{
+          color: $table-button;
+        }
   
         .title {
           margin: 0 0 8px;
@@ -338,6 +347,9 @@ const handleClose = () => {
           display: flex;
           align-items: center;
           gap: 4px;
+          img{
+            width: 18px;
+          }
         }
       }
   

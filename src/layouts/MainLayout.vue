@@ -1,6 +1,6 @@
 <template>
   <div class="main-layout">
-    <organize-header />
+    <!-- <organize-header /> -->
     <main class="main-content">
       <div class="el-content-wrapper">
         <router-view></router-view>

@@ -348,6 +348,23 @@ const handleAddRuleSubmit = (formData: any) => {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        :deep(.el-pagination) {
+
+&.is-background {
+  .btn-prev,
+  .btn-next,
+  .el-pager li {
+    &:hover {
+      color: $ai-page-color;
+    }
+
+    &.is-active {
+      background-color: $ai-page-color;
+      color: #fff;
+    }
+  }
+}
+}
     }
   
   }
